@@ -1,4 +1,14 @@
- //Searches pdf for keyword 
+var day =;
+var month;
+var year = 2021;
+
+
+while(year != 2023){
+ 
+}
+
+
+//Searches pdf for keyword 
 const input = document.querySelector('.flowpaper_txtSearch'); // Finds searchbar
 const search = document.querySelector('.flowpaper_bttnFind'); // Finds Search button1
 input.value = "CI$"; // Inputs value into search bar
@@ -17,10 +27,10 @@ childrenArray.forEach((element) => {
 }); 
 const unique = [...new Set(res)]; //Filters duplicate values
 
-//Calculates range of Classified section 
+//Calculates range of Classified section
 
 function download(){
-  let url = 'https://www.caymancompass.com/updates/eversion/2022/0107/docs/20220107_' + unique[i] + '.pdf';
+  let url = '' + unique[i] + '.pdf';
   const link = document.createElement("a");
   link.download = url;
   link.href = url;
