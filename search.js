@@ -1,11 +1,11 @@
-var day =;
-var month;
+/*var day =;
+var month = 01;
 var year = 2021;
 
 
 while(year != 2023){
  
-}
+}*/
 
 
 //Searches pdf for keyword 
@@ -14,20 +14,17 @@ const search = document.querySelector('.flowpaper_bttnFind'); // Finds Search bu
 input.value = "CI$"; // Inputs value into search bar
 search.click(); 
  
-// Searches for page #'s containing keyword in <b> tags 
 const res = []; const contentChildren = document.querySelector(".flowpaper_searchabstracts_content").children;
 const childrenArray = Array.from(contentChildren); 
  
 childrenArray.forEach((element) => { 
   const bTag = element.querySelector("b"); 
   if(bTag){ const bText = bTag.innerText; 
-           const pages = bText.substr(2); // substr to remove "p." before page numbers 
+           const pages = bText.substr(2);
            res.push(pages); 
           }
 }); 
 const unique = [...new Set(res)]; //Filters duplicate values
-
-//Calculates range of Classified section
 
 function download(){
   let url = '' + unique[i] + '.pdf';
