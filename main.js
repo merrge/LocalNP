@@ -1,12 +1,8 @@
-/*var day =;
-var month = 01;
-var year = 2021;
-
-
-while(year != 2023){
- 
-}*/
-
+//Sets up download link
+const dllink = window.location.href;
+var splitlink = dllink.split('/');
+const daymonth = splitlink[6];
+const year = splitlink[5];
 
 //Searches pdf for keyword 
 const input = document.querySelector('.flowpaper_txtSearch'); // Finds searchbar
@@ -25,20 +21,26 @@ childrenArray.forEach((element) => {
           }
 }); 
 const unique = [...new Set(res)]; //Filters duplicate values
-
-function download(){
-  let url = '' + unique[i] + '.pdf';
-  const link = document.createElement("a");
-  link.download = url;
-  link.href = url;
-  document.body.appendChild(link);
-  link.click();
-  i++;
+const min = Math.min(...unique);
+const max = Math.max(...unique);
+var z= 0;
+for (let x = min; x <= max; x++) {
+  unique[z] = x;
+z++;
 }
-
+ 
+function download(){
+    let url = 'https://www.caymancompass.com/updates/eversion/'+ year + '/' + daymonth + '/docs/'+ year + daymonth + '_' + unique[i] + '.pdf';
+    const link = document.createElement("a");
+    link.download = "Classified_" + unique[i] + ".pdf";
+    link.href = url;
+    document.body.appendChild(link);
+    link.click();
+  }
+ 
+ 
 var i = 0;
-while (i < unique.length){
-  setTimeout(function timer() {
-    download();
-  }, 5000);
+ while (i < unique.length) {
+	download();
+	i++;
 }
